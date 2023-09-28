@@ -2,6 +2,7 @@ package edu.codeup.codeupspringblog.controllers;
 
 import edu.codeup.codeupspringblog.models.Contact;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import edu.codeup.codeupspringblog.repositories.ContactRepository;
@@ -18,11 +19,15 @@ public class ContactController {
         this.contactsDao = contactsDao;
     }
 
+//    @GetMapping("/contacts")
+//    @ResponseBody
+//    public List<Contact> returnContacts() {
+//        return contactsDao.findAll();
+//    }
+
     @GetMapping("/contacts")
-    @ResponseBody
-    public List<Contact> returnContacts() {
-
-        return contactsDao.findAll();
-
+    public String returnContacts(Model model) {
+        model.addAttribute("contacts", contactsDao.findAll());
+        return "contacts/index";
     }
 }

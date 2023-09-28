@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "/partials/header :: head"></head>
+
+<body>
+<form th:action="@{/posts/edit}" th:method="POST" th:object="${post}">
+  <input type = "hidden" th:field="*{id}">
+  <label for="title">Title</label>
+  <input type="text" th:field="*{title}" id="title" class="form-control" />
+  <label for="body">Body</label>
+  <textarea name="body" th:field="*{body}" id="body" class="form-control"></textarea>
+  <button class="btn btn-success form-control">Post</button>
+</form>
+</body>
+</html>

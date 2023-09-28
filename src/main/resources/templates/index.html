@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <title>Home</title>
-</head>
+<!--<head th:replace = "/partials/header :: head"><title>Index</title></head>-->
 <body>
-
-<h1>This is the home page</h1>
-
+<p>Index</p>
 <div th:each="post : ${posts}">
     <p th:text="${post.title}" />
     <p th:text="${post.body}" />
+<!--    <p th:text="${post.user.email}" />-->
 </div>
-
 </body>
 </html>

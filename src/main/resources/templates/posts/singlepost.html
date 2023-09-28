@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace = "/partials/header :: head"><title>Single Post</title></head>
+<body>
+  <p th:text="${post.title}" />
+  <p th:text="${post.body}" />
+</body>
+</html>
